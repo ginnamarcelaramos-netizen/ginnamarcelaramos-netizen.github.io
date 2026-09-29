@@ -1,0 +1,787 @@
+/* =========================================================
+   CRISTIANCURSOS
+   HOJA DE ESTILOS PRINCIPAL
+   VERSIÓN: CONTRASTE ALTO - WCAG AAA
+   ========================================================= */
+
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
+
+:root {
+  /* Colores principales con mayor contraste */
+  --color-primario: #174ea6;
+  --color-primario-oscuro: #0b2f73;
+  --color-secundario: #075e54;
+  --color-secundario-oscuro: #043c36;
+  --color-acento: #8a3f00;
+
+  /* Fondos y texto */
+  --color-fondo: #f8fafc;
+  --color-superficie: #ffffff;
+  --color-texto: #172033;
+  --color-texto-suave: #263449;
+  --color-borde: #64748b;
+
+  /* Enlaces */
+  --color-enlace: #123b8c;
+  --color-enlace-hover: #081f4d;
+  --color-focus: #8a3f00;
+
+  --fuente-titulos: "Trebuchet MS", Arial, sans-serif;
+  --fuente-texto: Arial, Helvetica, sans-serif;
+
+  --espaciado-xs: 0.5rem;
+  --espaciado-sm: 0.75rem;
+  --espaciado-md: 1rem;
+  --espaciado-lg: 1.5rem;
+  --espaciado-xl: 2.5rem;
+
+  --radio-sm: 0.5rem;
+  --radio-md: 0.9rem;
+  --radio-lg: 1.25rem;
+
+  --sombra-suave: 0 4px 14px rgba(15, 23, 42, 0.14);
+  --sombra-tarjeta: 0 8px 24px rgba(15, 23, 42, 0.22);
+
+  --transicion: 0.25s ease;
+}
+
+/* =========================================================
+   2. CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   3. TIPOGRAFÍA
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+}
+
+h1 {
+  margin-bottom: 0;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-bottom: var(--espaciado-md);
+  color: var(--color-primario-oscuro);
+  font-size: 1.75rem;
+}
+
+h3 {
+  margin-bottom: var(--espaciado-sm);
+  color: var(--color-texto);
+  font-size: 1.25rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--espaciado-md);
+}
+
+ol,
+ul {
+  line-height: 1.7;
+}
+
+/* =========================================================
+   4. IMÁGENES Y VÍDEOS
+   ========================================================= */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radio-md);
+}
+
+img[alt] {
+  background-color: #e2e8f0;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  min-height: 315px;
+  margin: var(--espaciado-lg) 0;
+
+  border: 0;
+  border-radius: var(--radio-md);
+  background-color: #d8dee8;
+}
+
+iframe[title] {
+  border: 2px solid var(--color-borde);
+}
+
+/* =========================================================
+   5. ENLACES
+   ========================================================= */
+
+a {
+  color: var(--color-enlace);
+  font-weight: 700;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.18em;
+
+  transition:
+    color var(--transicion),
+    background-color var(--transicion),
+    transform var(--transicion);
+}
+
+/* Selector de atributo */
+a[href] {
+  text-decoration-style: solid;
+}
+
+a:hover {
+  color: var(--color-enlace-hover);
+}
+
+a:active {
+  color: #081f4d;
+}
+
+/* El foco normal se reserva para navegadores antiguos. */
+a:focus {
+  outline: none;
+}
+
+/* Foco especialmente visible para teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+/* =========================================================
+   6. ENLACE "SALTAR AL CONTENIDO"
+   ========================================================= */
+
+body > a[href="#contenido"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  padding: 0.75rem 1rem;
+
+  background-color: #ffffff;
+  color: #081f4d;
+
+  border: 3px solid #081f4d;
+  border-radius: 0 0 var(--radio-sm) 0;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transform: translateY(-150%);
+  transition: transform var(--transicion);
+}
+
+body > a[href="#contenido"]:focus,
+body > a[href="#contenido"]:focus-visible {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   7. HEADER
+   ========================================================= */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--espaciado-lg);
+
+  padding: var(--espaciado-lg) 5%;
+
+  background: linear-gradient(
+    135deg,
+    #174ea6,
+    #075e54
+  );
+
+  color: #ffffff;
+  border-bottom: 4px solid #8a3f00;
+}
+
+header h1 {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   8. NAVEGACIÓN
+   ========================================================= */
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  gap: var(--espaciado-xs);
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* Selector hijo directo */
+nav > ul > li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+
+  padding: 0.55rem 0.75rem;
+
+  color: #ffffff;
+  border-radius: var(--radio-sm);
+
+  text-decoration: none;
+
+  transition:
+    background-color var(--transicion),
+    color var(--transicion),
+    transform var(--transicion);
+}
+
+nav a:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+nav a:active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.32);
+  transform: translateY(0);
+}
+
+nav a:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* Página actual */
+nav a[aria-current="page"] {
+  background-color: rgba(0, 0, 0, 0.3);
+  text-decoration: underline;
+  text-decoration-thickness: 0.15em;
+}
+
+/* =========================================================
+   9. CONTENIDO PRINCIPAL
+   ========================================================= */
+
+main {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  padding: var(--espaciado-xl) 0;
+}
+
+main > section {
+  margin-bottom: var(--espaciado-xl);
+}
+
+/* Bienvenida */
+main > section:first-child {
+  padding: var(--espaciado-xl);
+
+  background-color: var(--color-superficie);
+
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+
+  box-shadow: var(--sombra-suave);
+
+  text-align: center;
+}
+
+main > section:first-child p {
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+
+  color: var(--color-texto-suave);
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   10. CATÁLOGO - CSS GRID
+   ========================================================= */
+
+section[aria-labelledby="catalogo"] {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: var(--espaciado-lg);
+}
+
+section[aria-labelledby="catalogo"] > h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   11. TARJETAS DE CURSOS
+   ========================================================= */
+
+section[aria-labelledby="catalogo"] > article {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  padding: var(--espaciado-lg);
+
+  background-color: var(--color-superficie);
+
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+
+  box-shadow: var(--sombra-suave);
+
+  transition:
+    transform var(--transicion),
+    box-shadow var(--transicion),
+    border-color var(--transicion);
+}
+
+section[aria-labelledby="catalogo"] > article:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--color-primario);
+
+  box-shadow: var(--sombra-tarjeta);
+}
+
+/* Permite localizar una tarjeta al navegar con teclado */
+section[aria-labelledby="catalogo"] > article:focus-within {
+  border-color: var(--color-focus);
+
+  box-shadow:
+    0 0 0 3px rgba(138, 63, 0, 0.3),
+    var(--sombra-tarjeta);
+}
+
+/* =========================================================
+   12. :NTH-CHILD
+   ========================================================= */
+
+section[aria-labelledby="catalogo"] > article:nth-child(2) {
+  border-top: 5px solid #174ea6;
+}
+
+section[aria-labelledby="catalogo"] > article:nth-child(3) {
+  border-top: 5px solid #075e54;
+}
+
+section[aria-labelledby="catalogo"] > article:nth-child(4) {
+  border-top: 5px solid #8a3f00;
+}
+
+section[aria-labelledby="catalogo"] > article:nth-child(5) {
+  border-top: 5px solid #5b21b6;
+}
+
+section[aria-labelledby="catalogo"] > article:nth-child(6) {
+  border-top: 5px solid #075985;
+}
+
+/* =========================================================
+   13. IMÁGENES DE TARJETAS
+   ========================================================= */
+
+section[aria-labelledby="catalogo"] > article img {
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  object-fit: cover;
+
+  margin-bottom: var(--espaciado-md);
+}
+
+section[aria-labelledby="catalogo"] > article p {
+  flex-grow: 1;
+  color: var(--color-texto-suave);
+}
+
+/* =========================================================
+   14. BOTONES Y ENLACES DE ACCIÓN
+   ========================================================= */
+
+article > p > a,
+article > a {
+  display: inline-block;
+  align-self: flex-start;
+
+  padding: 0.7rem 1rem;
+
+  background-color: var(--color-primario);
+  color: #ffffff;
+
+  border: 2px solid var(--color-primario);
+  border-radius: var(--radio-sm);
+
+  text-decoration: none;
+
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion),
+    color var(--transicion),
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+
+article > p > a:hover,
+article > a:hover {
+  background-color: var(--color-primario-oscuro);
+  border-color: var(--color-primario-oscuro);
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--sombra-suave);
+}
+
+article > p > a:active,
+article > a:active {
+  background-color: #081f4d;
+  border-color: #081f4d;
+
+  color: #ffffff;
+
+  transform: translateY(0);
+
+  box-shadow: none;
+}
+
+article > p > a:focus-visible,
+article > a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   15. PÁGINAS DE LECCIONES
+   ========================================================= */
+
+main section[aria-labelledby^="leccion-"] {
+  max-width: 850px;
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+main section[aria-labelledby^="leccion-"] article {
+  min-width: 0;
+
+  margin-bottom: var(--espaciado-xl);
+
+  padding: var(--espaciado-xl);
+
+  background-color: var(--color-superficie);
+
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+
+  box-shadow: var(--sombra-suave);
+}
+
+main section[aria-labelledby^="leccion-"] article h2 {
+  padding-bottom: var(--espaciado-sm);
+
+  border-bottom: 3px solid var(--color-secundario);
+}
+
+main section[aria-labelledby^="leccion-"] article img {
+  width: min(100%, 650px);
+
+  margin: var(--espaciado-lg) auto;
+
+  border: 3px solid #64748b;
+}
+
+main section[aria-labelledby^="leccion-"] article iframe {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+main section[aria-labelledby^="leccion-"] article p:last-child {
+  margin-top: var(--espaciado-lg);
+}
+
+/* =========================================================
+   16. LISTAS DE INSTRUCCIONES
+   ========================================================= */
+
+main ol {
+  margin-top: var(--espaciado-md);
+  margin-bottom: var(--espaciado-lg);
+  padding-left: 2rem;
+}
+
+main li {
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================================
+   17. FORMULARIOS Y MINI QUIZ
+   ========================================================= */
+
+fieldset {
+  min-width: 0;
+
+  margin: 0;
+  padding: var(--espaciado-lg);
+
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-md);
+
+  background-color: #f1f5f9;
+}
+
+legend {
+  padding: 0 var(--espaciado-sm);
+
+  color: var(--color-primario-oscuro);
+
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+fieldset p {
+  display: flex;
+  align-items: center;
+  gap: var(--espaciado-sm);
+}
+
+input[type="radio"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+button {
+  display: inline-block;
+
+  padding: 0.7rem 1rem;
+
+  background-color: var(--color-primario);
+  color: #ffffff;
+
+  border: 2px solid var(--color-primario);
+  border-radius: var(--radio-sm);
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion),
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+
+button:hover {
+  background-color: var(--color-primario-oscuro);
+  border-color: var(--color-primario-oscuro);
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--sombra-suave);
+}
+
+button:active {
+  background-color: #081f4d;
+  border-color: #081f4d;
+
+  transform: translateY(0);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   18. FOOTER
+   ========================================================= */
+
+footer {
+  margin-top: var(--espaciado-xl);
+
+  padding: var(--espaciado-lg) 5%;
+
+  background-color: #081f4d;
+  color: #ffffff;
+
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* =========================================================
+   19. SELECTORES DE ATRIBUTO
+   ========================================================= */
+
+img[alt] {
+  background-color: #e2e8f0;
+}
+
+iframe[title] {
+  background-color: #d8dee8;
+}
+
+input[type="radio"] {
+  accent-color: var(--color-primario);
+}
+
+/* =========================================================
+   20. REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   21. RESPONSIVE
+   ========================================================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+  section[aria-labelledby="catalogo"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  html {
+    font-size: 95%;
+  }
+
+  header {
+    padding: var(--espaciado-md) 5%;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  main {
+    width: 94%;
+    padding: var(--espaciado-lg) 0;
+  }
+
+  main > section:first-child {
+    padding: var(--espaciado-lg);
+  }
+
+  section[aria-labelledby="catalogo"] {
+    grid-template-columns: 1fr;
+  }
+
+  main section[aria-labelledby^="leccion-"] article {
+    padding: var(--espaciado-lg);
+  }
+
+  nav ul {
+    gap: 0.25rem;
+  }
+
+  nav a {
+    padding: 0.5rem 0.6rem;
+  }
+}
